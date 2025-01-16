@@ -1,4 +1,7 @@
-import styles from './categories.module.scss'
+import styles from './categories.module.scss';
+import CategoriesSlider from './categoriesSlider.component';
+
+import { useEffect, useState } from 'react';
 
 const App = () => {
 
@@ -30,7 +33,25 @@ const App = () => {
     },
   ]
 
-  return (
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  console.log("Before: ", windowWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  console.log("After: ", windowWidth);
+
+  return windowWidth <= 850 ? <CategoriesSlider categories={categories} /> : 
+  (  
     <div className={styles.wrapper}>
       <div className={styles.categories_container}>
         {
@@ -40,7 +61,7 @@ const App = () => {
                 <img src={imageUrl} alt="Knit-Low-Top-Sneakers-20" border="0" />
                 <div className={styles.category_body_container}>
                   <h2>{title}</h2>
-                  <button class={styles.button}>Shop Now</button>
+                  <button className={styles.button}>Shop Now</button>
                 </div>
               </div>
             )
