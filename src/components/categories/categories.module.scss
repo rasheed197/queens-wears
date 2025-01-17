@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categories_container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-gap: 5px;
+    grid-auto-flow: dense;
+    width: 1200px;
+    min-width: 800px;
+    grid-template-rows: repeat(2, 200px);
+    justify-content: center;
+    align-content: center;
+    box-sizing: border-box;
+}
