@@ -1,0 +1,54 @@
+@import '../../utils/font_sizes';
+
+.site_logo_container {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        height: 100%;
+        cursor: pointer;
+    }
+}
+
+.menu_links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 100px;
+    height: 80px;
+
+    a {
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: $md;
+    }
+}
+
+.cart_container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+
+    span {
+        background: pink;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 500;
+    }
+}
+
+@media only screen and (max-width:520px) {
+    .menu_links {
+        column-gap: 50px;
+    }
+}
